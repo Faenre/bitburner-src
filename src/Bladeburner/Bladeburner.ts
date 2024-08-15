@@ -1203,7 +1203,7 @@ export class Bladeburner {
             }
             const city = this.getCurrentCity();
             city.chaos += 10;
-            city.chaos += city.chaos / Math.log(city.chaos / 10);
+            city.chaos += city.chaos / (Math.log(city.chaos) / Math.log(10));
             break;
           }
           default: {
