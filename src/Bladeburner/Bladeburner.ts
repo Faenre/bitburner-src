@@ -645,8 +645,8 @@ export class Bladeburner {
       }
     } else if (chance <= 0.7) {
       // Synthoid Riots (+chaos), 20%
-      sourceCity.chaos += 1;
-      sourceCity.chaos *= 1 + getRandomIntInclusive(5, 20) / 100;
+      sourceCity.changeChaosByCount(1);
+      sourceCity.changeChaosByPercentage(getRandomIntInclusive(5, 20));
       if (this.logging.events) {
         this.log("Tensions between Synthoids and humans lead to riots in " + sourceCityName + "! Chaos increased");
       }
@@ -1156,10 +1156,7 @@ export class Bladeburner {
           }
           case BladeGeneralActionName.diplomacy: {
             const eff = this.getDiplomacyEffectiveness(person);
-            this.getCurrentCity().chaos *= eff;
-            if (this.getCurrentCity().chaos < 0) {
-              this.getCurrentCity().chaos = 0;
-            }
+            this.getCurrentCity().changeChaosByPercentage(1 - eff);
             if (this.logging.general) {
               this.log(
                 `${person.whoAmI()}: Diplomacy completed. Chaos levels in the current city fell by ${formatPercent(
@@ -1203,8 +1200,8 @@ export class Bladeburner {
             }
             for (const cityName of Object.values(CityName)) {
               const city = this.cities[cityName];
-              city.chaos += 10;
-              city.chaos += city.chaos / (Math.log(city.chaos) / Math.log(10));
+              city.changeChaosByCount(10);
+              city.changeChaosByCount(city.chaos / (Math.log(city.chaos) / Math.log(10)));
             }
             break;
           }
