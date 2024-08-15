@@ -1203,7 +1203,7 @@ export class Bladeburner {
             }
             const city = this.getCurrentCity();
             city.changeChaosByCount(10);
-            city.changeChaosByPercentage(getRandomIntInclusive(2, 10));
+            city.changeChaosByCount(city.chaos / Math.log(city.chaos) / Math.log(10));
             break;
           }
           default: {
