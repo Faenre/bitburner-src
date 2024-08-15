@@ -1156,7 +1156,7 @@ export class Bladeburner {
           }
           case BladeGeneralActionName.diplomacy: {
             const eff = this.getDiplomacyEffectiveness(person);
-            this.getCurrentCity().changeChaosByPercentage(1 - eff);
+            this.getCurrentCity().changeChaosByPercentage((1 - eff) * 100);
             if (this.logging.general) {
               this.log(
                 `${person.whoAmI()}: Diplomacy completed. Chaos levels in the current city fell by ${formatPercent(
