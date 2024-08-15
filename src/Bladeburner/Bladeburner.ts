@@ -1201,7 +1201,7 @@ export class Bladeburner {
             for (const cityName of Object.values(CityName)) {
               const city = this.cities[cityName];
               city.changeChaosByCount(10);
-              city.changeChaosByCount(city.chaos / (Math.log(city.chaos) / Math.log(10)));
+              city.changeChaosByCount(city.chaos / Math.log10(city.chaos));
             }
             break;
           }
