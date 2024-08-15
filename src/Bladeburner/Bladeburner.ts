@@ -646,7 +646,7 @@ export class Bladeburner {
     } else if (chance <= 0.7) {
       // Synthoid Riots (+chaos), 20%
       sourceCity.changeChaosByCount(1);
-      sourceCity.changeChaosByPercentage(getRandomIntInclusive(5, 20) / 100);
+      sourceCity.changeChaosByPercentage(getRandomIntInclusive(5, 20));
       if (this.logging.events) {
         this.log("Tensions between Synthoids and humans lead to riots in " + sourceCityName + "! Chaos increased");
       }
