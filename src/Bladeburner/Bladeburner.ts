@@ -1201,11 +1201,9 @@ export class Bladeburner {
             if (this.logging.general) {
               this.log(`${person.whoAmI()}: Incited violence in the synthoid communities.`);
             }
-            for (const cityName of Object.values(CityName)) {
-              const city = this.cities[cityName];
-              city.chaos += 10;
-              city.chaos += city.chaos / (Math.log(city.chaos) / Math.log(10));
-            }
+            const city = this.getCurrentCity();
+            city.chaos += 10;
+            city.chaos += city.chaos / Math.log(city.chaos / 10);
             break;
           }
           default: {
