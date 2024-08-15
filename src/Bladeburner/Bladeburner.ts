@@ -645,8 +645,8 @@ export class Bladeburner {
       }
     } else if (chance <= 0.7) {
       // Synthoid Riots (+chaos), 20%
-      sourceCity.chaos += 1;
-      sourceCity.chaos *= 1 + getRandomIntInclusive(5, 20) / 100;
+      sourceCity.changeChaosByCount(1);
+      sourceCity.changeChaosByPercentage(getRandomIntInclusive(5, 20) / 100);
       if (this.logging.events) {
         this.log("Tensions between Synthoids and humans lead to riots in " + sourceCityName + "! Chaos increased");
       }
@@ -1202,8 +1202,8 @@ export class Bladeburner {
               this.log(`${person.whoAmI()}: Incited violence in the synthoid communities.`);
             }
             const city = this.getCurrentCity();
-            city.chaos += 10;
-            city.chaos += city.chaos / (Math.log(city.chaos) / Math.log(10));
+            city.changeChaosByCount(10);
+            city.changeChaosByPercentage(getRandomIntInclusive(2, 10));
             break;
           }
           default: {
