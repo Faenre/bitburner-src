@@ -4333,12 +4333,12 @@ export interface Go {
    *
    * For example, a 5x5 board might look like this:
    *
-   [<br/>  
-      "XX.O.",<br/>  
-      "X..OO",<br/>  
-      ".XO..",<br/>  
-      "XXO.#",<br/>  
-      ".XO.#",<br/>  
+   [<br/>
+      "XX.O.",<br/>
+      "X..OO",<br/>
+      ".XO..",<br/>
+      "XXO.#",<br/>
+      ".XO.#",<br/>
    ]
    *
    * Each string represents a vertical column on the board, and each character in the string represents a point.
@@ -4359,12 +4359,12 @@ export interface Go {
    *
    * For example, a single 5x5 prior move board might look like this:
    *
-   [<br/>  
-      "XX.O.",<br/>  
-      "X..OO",<br/>  
-      ".XO..",<br/>  
-      "XXO.#",<br/>  
-      ".XO.#",<br/>  
+   [<br/>
+      "XX.O.",<br/>
+      "X..OO",<br/>
+      ".XO..",<br/>
+      "XXO.#",<br/>
+      ".XO.#",<br/>
    ]
    */
   getMoveHistory(): string[][];
@@ -6911,7 +6911,7 @@ export interface NS {
   /**
    * Returns an array with the hostnames of all of the servers you have purchased.
    *
-   * @remarks 2.25 GB
+   * @remarks 1.05 GB
    * @returns Returns an array with the hostnames of all of the servers you have purchased.
    */
   getPurchasedServers(): string[];
